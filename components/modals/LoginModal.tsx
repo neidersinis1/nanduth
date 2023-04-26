@@ -1,44 +1,44 @@
-// import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useCallback, useState } from "react";
-// import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 import useLoginModal from "@/hooks/useLoginModal";
-// import useRegisterModal from "@/hooks/useRegisterModal";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 import Input from "../Input";
 import Modal from "../Modal";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
-//   const registerModal = useRegisterModal();
+  const registerModal = useRegisterModal();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = useCallback(async () => {
-    // try {
-    //   setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    //   await signIn('credentials', {
-    //     email,
-    //     password,
-    //   });
+      await signIn('credentials', {
+        email,
+        password,
+      });
 
-    //   toast.success('Logged in');
+      toast.success('Logged in');
 
-    //   loginModal.onClose();
-    // } catch (error) {
-    //   toast.error('Something went wrong');
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      loginModal.onClose();
+    } catch (error) {
+      toast.error('Something went wrong');
+    } finally {
+      setIsLoading(false);
+    }
   }, [email, password, loginModal]);
 
-//   const onToggle = useCallback(() => {
-//     loginModal.onClose();
-//     registerModal.onOpen();
-//   }, [loginModal, registerModal])
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal])
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -59,10 +59,10 @@ const LoginModal = () => {
   )
 
   const footerContent = (
-    <div className="text-neutral-400 text-center mt-4">
-      <p>First time using Twitter?
+    <div className="text-gray-400 text-center mt-4">
+      <p>First time using Nanduth?
         <span 
-        //   onClick={onToggle} 
+          onClick={onToggle} 
           className="
             text-white 
             cursor-pointer 
