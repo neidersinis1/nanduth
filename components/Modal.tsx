@@ -13,7 +13,16 @@ interface ModalProps {
   disabled?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, actionLabel, footer, disabled }) => {
+const Modal: React.FC<ModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  onSubmit, 
+  title, 
+  body, 
+  actionLabel, 
+  footer, 
+  disabled 
+}) => {
   const handleClose = useCallback(() => {
     if (disabled) {
       return;
@@ -52,7 +61,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
           bg-opacity-70
         "
       >
-        <div className="relative w-full lg:w-3/6 my-6 mx-auto lg:max-w-3xl h-full lg:h-auto">
+        <div className="
+          relative 
+          w-full 
+          lg:w-3/6 
+          my-6 
+          mx-auto 
+          lg:max-w-3xl 
+          h-full lg:h-auto">
           {/*content*/}
           <div className="
             h-full
@@ -101,7 +117,13 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title, body, a
             </div>
             {/*footer*/}
             <div className="flex flex-col gap-2 p-10">
-              <Button disabled={disabled} label={actionLabel} secondary fullWidth large onClick={handleSubmit} />
+              <Button 
+                disabled={disabled}
+                label={actionLabel} 
+                secondary 
+                fullWidth 
+                large 
+                onClick={handleSubmit} />
               {footer}
             </div>
           </div>

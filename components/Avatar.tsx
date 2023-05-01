@@ -34,6 +34,7 @@ const Avatar: React.FC<AvatarProps> = ({ userId, isLarge, hasBorder }) => {
         transition 
         cursor-pointer
         relative
+        p-6
       `}
     >
       <Image

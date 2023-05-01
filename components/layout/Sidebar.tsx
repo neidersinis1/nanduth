@@ -5,6 +5,7 @@ import { BsHouseFill, BsBellFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import { HiChevronDown } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
+import { HiSearchCircle } from "react-icons/hi";
 
 import useCurrentUser from "@/hooks/useCurrentUser";
 
@@ -43,6 +44,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       icon: FaUser,
       label: "Profile",
       href: `/users/${currentUser?.id}`,
+      auth: true,
+    },
+    {
+      icon: HiSearchCircle,
+      label: "Search",
+      href: `/search/`,
       auth: true,
     },
   ];

@@ -23,7 +23,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           >
             {children}
           </div>
-          <div className="absolute lg:relative lg:flex right-1">
+          <div className="absolute md:relative lg:relative lg:flex right-1">
             <FollowBar />
           </div>
         </div>
