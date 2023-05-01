@@ -13,7 +13,14 @@ import SidebarLogo from "./SidebarLogo";
 import SidebarTweetButton from "./SidebarTweetButton";
 import MobileMenu from "@/components/MobileMenu";
 
-const Sidebar = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  // onClick: () => void;
+  // disabled?: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const { data: currentUser } = useCurrentUser();
@@ -48,7 +55,7 @@ const Sidebar = () => {
     <div className="absolute bg-black z-10 col-span-1 h-full pr-1 md:pr-6">
       <div
         onClick={toggleMobileMenu}
-        className="lg:hidden flex flex-row items-center gap-2 ml-4 cursor-pointer relative"
+        className="lg:hidden md:hidden flex flex-row items-center gap-2 mb-3 ml-4 cursor-pointer relative"
       >
         {/* <p className="text-white text-sm">Browse</p> */}
         <HiOutlineMenu
@@ -58,14 +65,21 @@ const Sidebar = () => {
         />
         
       </div>
+      <div 
+      onClick={toggleMobileMenu}
+        
+      >
       <MobileMenu visible={showMobileMenu} />
+      </div>
+      
 
-      <div className="md:hidden sm:hidden hidden lg:flex flex-col items-end">
-        <div className="space-y-2 lg:w-[230px]">
+      <div className=" hidden md:flex md:ml-5 lg:ml-8 lg:flex flex-col items-end">
+        <div 
+          
+        className="space-y-2 lg:w-[230px]">
           <SidebarLogo />
           {items.map((item) => (
             <SidebarItem
-              onClick={toggleMobileMenu}
               key={item.href}
               alert={item.alert}
               auth={item.auth}

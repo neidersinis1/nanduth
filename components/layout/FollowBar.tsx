@@ -13,10 +13,10 @@ const FollowBar = () => {
   return (
     <>
       <div className="absolute px-6 py-4 ">
-        <div className="absolute right-3 -mt-8 lg:w-full lg:hidden">
+        <div className="absolute right-3 -mt-8 lg:w-full md:hidden lg:hidden">
           <SidebarLogo />
         </div>
-        <div className="hidden  lg:block">
+        <div className="hidden md:block lg:block">
           <div className="bg-gray-800 rounded-xl p-4">
             <h2 className="text-white text-xl font-semibold">Who to follow</h2>
             <div className="flex flex-col gap-6 mt-4">
