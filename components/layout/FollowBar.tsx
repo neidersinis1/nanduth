@@ -1,5 +1,5 @@
 import useUsers from "@/hooks/useUsers";
-
+import Link from 'next/link'
 import Avatar from "../Avatar";
 import SidebarLogo from "./SidebarLogo";
 import { HiSearchCircle } from "react-icons/hi";
@@ -22,12 +22,16 @@ const FollowBar = () => {
           <SidebarLogo />
         </div>
         <div
-          onClick={() => router.push('/search')}
-          className="absolute  right-28 -mt-4 cursor-pointer"
+          // onClick={() => router.push('/search')}
+          className="absolute md:hidden lg:hidden right-28 -mt-4 cursor-pointer"
           >
+        <Link href='/search'>
+
           <HiSearchCircle size={28} color="white" />
+        </Link>
+
         </div>
-        <div className="hidden md:block lg:block">
+        <div className="hidden md:flex lg:block">
           <div className="bg-gray-800 rounded-xl p-4">
             <h2 className="text-white text-xl font-semibold">Who to follow</h2>
             <div className="flex flex-col gap-6 mt-4">

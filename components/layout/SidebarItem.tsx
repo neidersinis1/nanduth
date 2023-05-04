@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { IconType } from "react-icons";
 import { useRouter } from 'next/router';
-
+import Link from 'next/link'
 import useLoginModal from '@/hooks/useLoginModal';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { BsDot } from 'react-icons/bs';

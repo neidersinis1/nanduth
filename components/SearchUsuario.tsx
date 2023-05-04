@@ -28,7 +28,7 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
 
   let result = [""];
   if (!search) {
-    result = users;
+    result = [];
   } else {
     result = users.filter((dato: any) =>
       dato.name.toLowerCase().includes(search.toLocaleLowerCase())
@@ -37,8 +37,8 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
 
   return (
     <>
-      <div className="flex md:flex-row flex-col gap-4">
-        <div className="flex">
+      <div className="flex ml-5 flex-col gap-4">
+        <div className="flex ">
         <div className=" mr-3">
           <label className="cursor-pointer w-60 mr-10" htmlFor="textarea">
             <HiSearchCircle size={45} color="white" />
@@ -70,6 +70,7 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
                 peer-focus:opacity-100 
                 h-[1px] 
                 w-full 
+                border-2px
                 border-gray-800 
                 transition"
           />

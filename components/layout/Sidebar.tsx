@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { HiChevronDown } from "react-icons/hi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { HiSearchCircle } from "react-icons/hi";
-
+import Link from 'next/link'
 import useCurrentUser from "@/hooks/useCurrentUser";
 
 import SidebarItem from "./SidebarItem";
