@@ -1,5 +1,4 @@
-import React, { useCallback } from "react";
-import { HiOutlineMenu } from "react-icons/hi";
+import React from "react";
 import { BsHouseFill, BsBellFill } from "react-icons/bs";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { FaUser } from "react-icons/fa";
@@ -11,19 +10,10 @@ import SidebarTweetButton from "@/components/layout/SidebarTweetButton";
 
 interface MobileMenuProps {
   visible?: boolean;
-  // onClick: () => void;
-  // disabled?: boolean;
-
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
-  // const handleClose = useCallback(() => {
-  //   if (disabled) {
-  //     return;
-  //   }
-  
-  //   onClick();
-  // }, [onClick, disabled]);
+
   if (!visible) {
     return null;
   }
