@@ -1,9 +1,10 @@
 import React from "react";
+import { signOut } from "next-auth/react";
 import { BsHouseFill, BsBellFill } from "react-icons/bs";
-import useCurrentUser from "@/hooks/useCurrentUser";
 import { FaUser } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
-import { signOut } from "next-auth/react";
+
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 import SidebarItem from "@/components/layout/SidebarItem";
 import SidebarTweetButton from "@/components/layout/SidebarTweetButton";
