@@ -11,10 +11,10 @@ import Avatar from "./Avatar";
 
 interface SearchProps {
   placeholder: string;
-  id: boolean
+  // id: boolean
 }
 
-const SearchUsuario: React.FC<SearchProps> = ({ placeholder, id }) => {
+const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
   // const { data: currentUser } = useCurrentUser();
 
   // const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +27,7 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder, id }) => {
     console.log(e.target.value);
   };
 
-  let result = [id,];
+  let result = [];
   if (!search) {
     result = [];
   } else {
