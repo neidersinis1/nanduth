@@ -106,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({ disabled }) => {
                 key={item.href}
                 alert={item.alert}
                 auth={item.auth}
-                href={item.href}
+                // href={item.href}
                 icon={item.icon}
                 label={item.label}
               />
