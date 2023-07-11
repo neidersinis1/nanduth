@@ -11,9 +11,10 @@ import Avatar from "./Avatar";
 
 interface SearchProps {
   placeholder: string;
+  id: boolean
 }
 
-const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
+const SearchUsuario: React.FC<SearchProps> = ({ placeholder, id }) => {
   // const { data: currentUser } = useCurrentUser();
 
   // const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +27,7 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
     console.log(e.target.value);
   };
 
-  let result = [""];
+  let result = [id,];
   if (!search) {
     result = [];
   } else {
@@ -39,18 +40,18 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
     <>
       <div className="flex ml-5 flex-col gap-4">
         <div className="flex ">
-        <div className=" mr-3">
-          <label className="cursor-pointer w-60 mr-10" htmlFor="textarea">
-            <HiSearchCircle size={45} color="white" />
-          </label>
-        </div>
-        <div className="">
-          <textarea
-            onChange={searcher}
-            id="textarea"
-            value={search}
-            placeholder={placeholder}
-            className="
+          <div className=" mr-3">
+            <label className="cursor-pointer w-60 mr-10" htmlFor="textarea">
+              <HiSearchCircle size={45} color="white" />
+            </label>
+          </div>
+          <div className="">
+            <textarea
+              onChange={searcher}
+              id="textarea"
+              value={search}
+              placeholder={placeholder}
+              className="
               disabled:opacity-80
               peer
               resize-none 
@@ -63,9 +64,9 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
               placeholder-gray-400 
               text-white
             "
-          ></textarea>
-          <hr
-            className="
+            ></textarea>
+            <hr
+              className="
                 opacity-0 
                 peer-focus:opacity-100 
                 h-[1px] 
@@ -73,24 +74,26 @@ const SearchUsuario: React.FC<SearchProps> = ({ placeholder }) => {
                 border-2px
                 border-gray-800 
                 transition"
-          />
+            />
+          </div>
         </div>
-        </div>
-        
-        <div className="flex flex-col gap-6 mt-4">
-          {result.map((user) => (
-            <div key={user.id} className="flex flex-row gap-4">
-              <Avatar userId={user.id} />
-              <div className="flex flex-col">
-                <p className="text-white font-semibold text-sm">{user.name}</p>
-                <p className="text-gray-400 text-sm">@{user.username}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+
+
       </div>
     </>
   );
 };
+
+{/* <div className="flex flex-col gap-6 mt-4"> */ }
+// {result.map((user) => (
+// <div key={user.id} className="flex flex-row gap-4">
+//   <Avatar userId={user.id} />
+//   <div className="flex flex-col">
+//     <p className="text-white font-semibold text-sm">{user.name}</p>
+//     <p className="text-gray-400 text-sm">@{user.username}</p>
+// </div>
+// </div>
+// ))}
+// </div>
 
 export default SearchUsuario;
