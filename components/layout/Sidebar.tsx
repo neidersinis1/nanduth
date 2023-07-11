@@ -15,12 +15,23 @@ import SidebarTweetButton from "./SidebarTweetButton";
 import MobileMenu from "@/components/MobileMenu";
 
 interface SidebarProps {
-  isOpen?: boolean;
+  // visible?: boolean;
   // onClick: () => void;
-  // disabled?: boolean;
+  disabled?: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+const Sidebar: React.FC<SidebarProps> = ({ disabled }) => {
+  const handleClose = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+
+
+  }, [disabled]);
+
+  // if (!visible) {
+  //   return null;
+  // }
 
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -55,45 +66,51 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   ];
 
   const toggleMobileMenu = useCallback(() => {
-    setShowMobileMenu((current) => !current);
+
   }, []);
 
   return (
     <div className="absolute bg-black z-10 col-span-1 h-full pr-1 md:pr-6">
       <div
-        onClick={toggleMobileMenu}
+        onClick={() => toggleMobileMenu}
         className="lg:hidden md:hidden flex flex-row items-center gap-2 mb-3 ml-4 cursor-pointer relative"
       >
-        {/* <p className="text-white text-sm">Browse</p> */}
-        <HiOutlineMenu
-          className={`w-6 h-6 text-white fill-white transition ${
-            showMobileMenu ? "rotate-180" : "rotate-0"
-          }`}
+        <HiOutlineMenu className={`
+          w-6 h-6 text-white fill-white transition 
+        `}
         />
-        
+
       </div>
-      <div 
-      onClick={toggleMobileMenu}
-        
+      <div
+      // className={}
+      // onClick={toggleMobileMenu}
+
       >
-      <MobileMenu visible={showMobileMenu} />
+        {
+          showMobileMenu ? <MobileMenu /> : null
+        }
+
       </div>
-      
 
       <div className=" hidden md:flex md:ml-5 lg:ml-8 lg:flex flex-col items-end">
-        <div 
-          
-        className="space-y-2 lg:w-[230px]">
+        <div
+
+          className="space-y-2 lg:w-[230px]">
           <SidebarLogo />
           {items.map((item) => (
-            <SidebarItem
+            <Link
               key={item.href}
-              alert={item.alert}
-              auth={item.auth}
               href={item.href}
-              icon={item.icon}
-              label={item.label}
-            />
+            >
+              <SidebarItem
+                key={item.href}
+                alert={item.alert}
+                auth={item.auth}
+                href={item.href}
+                icon={item.icon}
+                label={item.label}
+              />
+            </Link>
           ))}
           {currentUser && (
             <SidebarItem

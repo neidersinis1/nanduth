@@ -5,28 +5,29 @@ import useCurrentUser from "@/hooks/useCurrentUser";
 import { FaUser } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { signOut } from "next-auth/react";
+import Link from 'next/link'
 
 import SidebarItem from "@/components/layout/SidebarItem";
 import SidebarTweetButton from "@/components/layout/SidebarTweetButton";
 
 interface MobileMenuProps {
-  visible?: boolean;
+  // visible?: boolean;
   // onClick: () => void;
-  // disabled?: boolean;
+  disabled?: boolean;
 
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
+const MobileMenu: React.FC<MobileMenuProps> = () => {
   // const handleClose = useCallback(() => {
   //   if (disabled) {
   //     return;
   //   }
-  
+
   //   onClick();
   // }, [onClick, disabled]);
-  if (!visible) {
-    return null;
-  }
+  // if (!visible) {
+  //   return null;
+  // }
 
   const { data: currentUser } = useCurrentUser();
 
@@ -59,15 +60,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
             <div className="flex flex-col items-end">
               <div className="space-y-2 lg:w-[30px]">
                 {items.map((item) => (
-                  <SidebarItem
-                    
+                  <Link
                     key={item.href}
-                    alert={item.alert}
-                    auth={item.auth}
                     href={item.href}
-                    icon={item.icon}
-                    label={item.label}
-                  />
+                  >
+                    <SidebarItem
+
+                      key={item.href}
+                      alert={item.alert}
+                      auth={item.auth}
+                      href={item.href}
+                      icon={item.icon}
+                      label={item.label}
+                    />
+                  </Link>
                 ))}
                 {currentUser && (
                   <SidebarItem

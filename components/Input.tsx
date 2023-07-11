@@ -23,7 +23,7 @@ interface InputProps {
             text-lg 
             bg-black 
             border-2
-            border-gray-800 
+            border-gray-700 
             rounded-md
             outline-none
             text-white
